@@ -28,8 +28,8 @@ class AppProvider extends React.Component {
       });
     },
     deleteTodo: selectedID => {
-      const todoList = this.state.todoList;
-      delete todoList[selectedID];
+      let todoList = this.state.todoList;
+      todoList.splice(selectedID, 1);
       localStorage.setItem(
         'todo-list-with-react-hooks',
         JSON.stringify(todoList)

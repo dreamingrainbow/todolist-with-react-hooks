@@ -4,6 +4,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 const Todo = props => (
   <MyContext.Consumer>
     {context => (
+      context.todoList[props.ID] !== null ? 
       <CSSTransitionGroup
         transitionName='todo-item'
         transitionAppear={true}
@@ -21,7 +22,7 @@ const Todo = props => (
           </button>
           <button onClick={() => context.deleteTodo(props.ID)}>Delete</button>
         </div>
-      </CSSTransitionGroup>
+      </CSSTransitionGroup> : null
     )}
   </MyContext.Consumer>
 );
