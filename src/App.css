@@ -31,10 +31,18 @@
     transform: rotate(360deg);
   }
 }
-.todo-item {
 
-  
+.todo-item {
+  background-color: blue;
+  padding: 2px, 2px, 2px, 2px;
+  margin: 2px,
+  2px,
+  2px,
+  2px;
+  border: grey 2px dotted;
+  border-block-color: grey;
 }
+
 .todo-item:hover {
   background-color: blue;
   cursor: pointer;
@@ -46,7 +54,6 @@
 
 .todo-item-enter {
   opacity: 0.01;
-  width: 0px;
   -webkit-transition: background-color 2s ease-in;
   -moz-transition: background-color 2s ease-in;
   -o-transition: background-color 2s ease-in;
@@ -61,7 +68,6 @@
 
 .todo-item-leave {
   opacity: 1;
-  width: 100px;
   -webkit-transition: background-color 2s ease-out;
   -moz-transition: background-color 2s ease-out;
   -o-transition: background-color 2s ease-out;
@@ -70,7 +76,6 @@
 
 .todo-item-leave.todo-item-leave-active {
   opacity: 0.01;
-  width: 0px;
   transition: 700ms;
 }
 

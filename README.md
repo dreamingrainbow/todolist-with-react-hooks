@@ -58,8 +58,8 @@ class AppProvider extends React.Component {
       });
     },
     deleteTodo: selectedID => {
-      const todoList = this.state.todoList;
-      delete todoList[selectedID];
+      let todoList = this.state.todoList;
+      todoList.splice(selectedID, 1);
       localStorage.setItem(
         'todo-list-with-react-hooks',
         JSON.stringify(todoList)
@@ -157,6 +157,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 const Todo = props => (
   <MyContext.Consumer>
     {context => (
+      context.todoList[props.ID] !== null ? 
       <CSSTransitionGroup
         transitionName='todo-item'
         transitionAppear={true}
@@ -174,7 +175,7 @@ const Todo = props => (
           </button>
           <button onClick={() => context.deleteTodo(props.ID)}>Delete</button>
         </div>
-      </CSSTransitionGroup>
+      </CSSTransitionGroup> : null
     )}
   </MyContext.Consumer>
 );
