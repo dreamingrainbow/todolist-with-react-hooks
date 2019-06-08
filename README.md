@@ -1,3 +1,5 @@
+### Todo List using React Context and Hooks ###
+
 ## Step One ## 
 Create A Context.
 This be our share data object through out our application;
@@ -8,7 +10,7 @@ const AppContext = React.createContext();
 export default AppContext;
 ```
 
-
+## Step Two ##
 Next we need to create our Provider.
 Our privider will contain our general controller logic for our application, these are the functions/methods we need access to through out our application. We use local storeage to create a persistant todo list for the example however you would simple extend this out to the data connections.
 
@@ -65,6 +67,8 @@ class AppProvider extends React.Component {
 
 export default AppProvider;
 ```
+
+## Step Three ##
 So now lets create the primary application component. Since we want our context available through out our applicaton we create our provider at the base of our application as our primary component in our app component. We also add our todolist primary component to the application provider component.
 
 ```JavaScript App.js
@@ -83,7 +87,7 @@ function App() {
 export default App;
 ```
 
-
+## Step Four ##
 Next the TodoList main wrapper page, here we don't use the context so we just create our component adding our Todos component which utilizes the context.
 
 ```JavaScript TodoList.js
@@ -97,7 +101,7 @@ const TodoList = () => (
 );
 export default TodoList;
 ```
-
+## Step Five ##
 Next we create our Todos Component. Here we utilze the context consumer and use it to wrap our component content, where within our component we access the context and react based on the information or utilize the functions manipulating state through out the application. Here we import our form and context, iterate over our todolist context mapping our Todo components. Next we need a way to manipulate that data so we will create a form.
 
 ```JavaScript Todos.js
@@ -123,7 +127,7 @@ const Todos = () => (
 );
 export default Todos;
 ```
-
+## Step Six ##
 Forms dont need to be forms! We just need our elements.
 First we import our resources, then we set up our local state, we use the context consumer and the functions we attached to the context to manipulate the context and local state. Here I use an input but this could be a paragraph element using advance techniques like editable content, to keep this demonstration simple we use an input. We pass the event object to our local state function setting our todo on change. Once we click the buttin we add the todo to our context with our addTodo method we attached to our context.
 
@@ -151,7 +155,7 @@ const TodoForm = props => {
 
 export default TodoForm;
 ```
-
+## Step Seven ##
 Finally our Todo, Here we used a CSS Transition to make it look a little special, but again we start this component with the consumer component since we will be utilizing our context. We add our attached methods to our buttons and display our data. That's it we are done for now.
 
 ```JavaScript
@@ -186,5 +190,7 @@ const Todo = props => (
 
 export default Todo;
 ```
+
+## Extra Credit ##
 Try it out on your own. Try adding a way to edit the existing todo. Maybe setup to utilize a storage services. If you want to be good at something practice!
 
